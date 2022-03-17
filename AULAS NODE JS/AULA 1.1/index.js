@@ -4,7 +4,7 @@ import fetch from 'node-fetch';
 // faz a busca no endpoint
 // se achar algo certo, retorna o valor
 // se não, trata o erro.
-fetch("https://dog.ceo/api/breeds/image/random")
+fetch("https://www.infomoney.com.br/ferramentas/criptomoedas/")
 .then((response)=>{
     return response.json();
 })
