@@ -10,8 +10,34 @@ const firebaseConfig = {
   measurementId: "G-1L0B8VWRNE"
 };
 
+// comunicando com o banco
 firebase.initializeApp(firebaseConfig);
 
 function createDataInRealTime() {
-    
-} 
+    // ativando o prototype no firebase
+    let students = firebase.database().ref("alunos");
+
+    students.push(
+        {
+            name: "Caio",
+            idade: 17
+        }
+    )
+}
+
+function readStudentsInRealTime() {
+    firebase.database().ref("alunos").on("value",(snapshot)=>{
+        snapshot.forEach((childItem)=>{
+            let data = {
+                key: childItem.key,
+                name: childItem.val().name,
+                idade: childItem.val().idade
+            }
+
+            console.log(data);
+        });
+    });
+}
+
+// createDataInRealTime();
+readStudentsInRealTime();
