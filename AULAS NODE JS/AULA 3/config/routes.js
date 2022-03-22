@@ -25,7 +25,7 @@ routes.post("/add", (req, resp)=>{
     // passa o objeto json para o body
     const body = req.body;
 
-    // se tiver problema, retorna erro
+    // se tiver nao tiver nada, retorna erro
     if (!body) {
         return resp.status(400).end;
     }
