@@ -10,7 +10,7 @@ const firebaseConfig = {
   measurementId: "G-1L0B8VWRNE"
 };
 
-// comunicando com o banco
+// comunicando com o banco para iniciar.
 firebase.initializeApp(firebaseConfig);
 
 function createDataInRealTime() {
