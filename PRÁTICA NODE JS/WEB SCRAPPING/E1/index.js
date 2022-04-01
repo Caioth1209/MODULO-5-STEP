@@ -4,7 +4,6 @@ const cheerio = require('cheerio');
 
 // responsavel por pegar os dados
 const fetchData = async (url) => {
-
     // axios para pegar os dados
     const result = await axios.get(url);
     return result.data;
