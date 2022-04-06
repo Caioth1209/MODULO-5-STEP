@@ -12,6 +12,6 @@ app.use(express.json());
 app.use(cors());
 app.use(routes);
 
-app.listen(4000, ()=>{
+app.listen(3000, ()=>{
     console.log("Express start");
 })

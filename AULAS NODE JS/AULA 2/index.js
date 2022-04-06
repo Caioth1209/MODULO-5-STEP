@@ -1,53 +1,47 @@
-// como se fosse import
-const axios = require('axios');
-const cheerio = require('cheerio');
+const http = require('http');
 
-// responsavel por pegar os dados
-const fetchData = async (url) => {
+http.createServer((request, response)=>{
 
-    // axios para pegar os dados
-    const result = await axios.get(url);
-    return result.data;
+    console.log("oiiii");
+    response.writeHead(200,{"Content-type":"text/html"});
+
+    response.write(
+        "<h1>Funcionou legal</h1>"
+    );
+
+    response.end();
+}).listen(3000);
+
+// // como se fosse import
+// const axios = require('axios');
+// const cheerio = require('cheerio');
+
+// // responsavel por pegar os dados
+// const fetchData = async (url) => {
+
+//     // axios para pegar os dados
+//     const result = await axios.get(url);
+//     return result.data;
     
-} 
+// } 
 
-const main = async () => {
-    const content = await fetchData("https://stardewvalleywiki.com/Villagers");
+// const main = async () => {
+//     const content = await fetchData("https://stardewvalleywiki.com/Villagers");
 
-    // cheerio para fazer a raspagem
-    const $ = cheerio.load(content);
+//     // cheerio para fazer a raspagem
+//     const $ = cheerio.load(content);
 
-    let villagers = [];
+//     let villagers = [];
 
-    $("li.gallerybox").each((i, el)=>{
-        const title = $(el).find(".gallerytext > p > a").text();
+//     $("li.gallerybox").each((i, el)=>{
+//         const title = $(el).find(".gallerytext > p > a").text();
 
-        const data = {title};
+//         const data = {title};
 
-        villagers.push(data);
-    })
+//         villagers.push(data);
+//     })
 
-    console.log({villagers});
-}
+//     console.log({villagers});
+// }
 
-main();
-
-
-
-
-
-
-
-
-
-// var http = require('http');
-
-// http.createServer((request, response)=>{
-//     response.writeHead(200,{"Content-type":"text/html"});
-
-//     response.write(
-//         "<h1>Funcionou legal</h1>"
-//     );
-
-//     response.end();
-// }).listen(8080);
+// main();

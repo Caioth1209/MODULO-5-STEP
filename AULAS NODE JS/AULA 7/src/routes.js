@@ -8,4 +8,6 @@ routes.post("/user", UserController.index);
 
 routes.get("/getUser", UserController.show);
 
+routes.post("/addUser", UserController.store);
+
 module.exports = routes;
