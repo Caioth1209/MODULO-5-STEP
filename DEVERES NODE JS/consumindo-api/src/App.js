@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import api from "./services/api";
 
 export default function App() {
@@ -9,7 +9,7 @@ export default function App() {
     let idPersonagem = document.getElementById("idPersonagem").value;
 
     if (idPersonagem < 1 || idPersonagem > 826) {
-        alert("Personagem inválido!");
+        setPersonagem("");
     } else {
 
         api.get(`/character/${idPersonagem}`)
@@ -24,27 +24,33 @@ export default function App() {
 
   return (
     <div>
-      <div className="w-full p-20 text-center">
+      <div className="principal">
           <div>
-            <label className="text-xl">Escolha um personagem entre 1 e 826: </label>
-            <input type="number" id="idPersonagem" className="border-solid border-2 border-black p-1"></input>
-          </div>
-
-          <div className="mt-5">
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onClick={procurarPersonagem}>Procurar</button>
+            <label className="form-label">Escolha um personagem entre 1 e 826: </label>
+            <input type="number" id="idPersonagem" className="form-control inputEscolha" onChange={procurarPersonagem}></input>
           </div>
       </div>
 
-      {personagem != "" && (
-          <div className="flex justify-center mt-10">
-            <img src={personagem.image}></img>
-            <div>
-              <h2>Name: {personagem.name}</h2>
-              <h2>Status: {personagem.status}</h2>
-              <h2>Species: {personagem.species}</h2>
-              <h2>Gender: {personagem.gender}</h2>
+      {personagem ? (
+          <div className="blocoPersonagem">
+            <img src={personagem.image} alt={`Imagem do ${personagem.name}`}></img>
+            <div className="personagemInfo">
+              
+              <h2 className="titulo">Name: <span className="valor">{personagem.name}</span></h2>
+
+              <h2 className="titulo">Status: <span className="valor">{personagem.status}</span></h2>
+
+              <h2 className="titulo">Species: <span className="valor">{personagem.species}</span></h2>
+
+              <h2 className="titulo">Gender: <span className="valor">{personagem.gender}</span></h2>
+
+              <h2 className="titulo">Location: <span className="valor">{personagem.location.name}</span></h2>
             </div>
           </div>
+      ) : (
+        <div class="alert alert-danger erroPersonagem" role="alert">
+          Personagem inválido!
+        </div>
       )}
     </div>
   );
