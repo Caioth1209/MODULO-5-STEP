@@ -1,7 +1,7 @@
 //arquivo para configuracao
 //do servidor
 
-const app = require('./app');
+const app = require('./App');
 
 let PORT = process.env.PORT || 8080;
 

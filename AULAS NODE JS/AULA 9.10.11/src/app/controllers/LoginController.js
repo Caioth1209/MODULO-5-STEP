@@ -1,6 +1,10 @@
 const User = require("../models/User");
 
-const bcrypt = require('bcryptjs');
+const bcrypt = require("bcryptjs");
+
+const jwt = require("jsonwebtoken");
+
+const config = require("../../config/auth");
 
 class LoginController{
 
@@ -29,9 +33,21 @@ class LoginController{
         //parte 3: Esta tudo certo ? Retorna a senha e email
 
         return res.status(200).json({
-            error: false,
-            message: "Você entrou no sistema!"
+            user:{
+                name: userExist.name,
+                email: userExist.email
+            },
+            token: jwt.sign(
+                {id: userExist._id},
+                config.secret,
+                {expiresIn: config.expireIN}
+            )
         })
+
+        // return res.status(200).json({
+        //     error: false,
+        //     message: "Você entrou no sistema!"
+        // })
     }
 
 }
