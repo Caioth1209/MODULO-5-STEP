@@ -1,4 +1,3 @@
-// como se fosse import
 const axios = require('axios');
 const cheerio = require('cheerio');
 

@@ -11,7 +11,6 @@ export default function App() {
     if (idPersonagem < 1 || idPersonagem > 826) {
         setPersonagem("");
     } else {
-
         api.get(`/character/${idPersonagem}`)
         .then((res)=>{
           setPersonagem(res.data);
@@ -27,15 +26,20 @@ export default function App() {
       <div className="principal">
           <div>
             <label className="form-label">Escolha um personagem entre 1 e 826: </label>
-            <input type="number" id="idPersonagem" className="form-control inputEscolha" onChange={procurarPersonagem}></input>
+            <input type="number" id="idPersonagem" className="form-control inputEscolha" ></input>
+          </div>
+
+          <div>
+            <button className="btn btn-primary" onClick={procurarPersonagem}>Procurar</button>
           </div>
       </div>
 
       {personagem ? (
-          <div className="blocoPersonagem">
+          <div className="blocoPersonagem d-flex justify-content-center">
+
             <img src={personagem.image} alt={`Imagem do ${personagem.name}`}></img>
+
             <div className="personagemInfo">
-              
               <h2 className="titulo">Name: <span className="valor">{personagem.name}</span></h2>
 
               <h2 className="titulo">Status: <span className="valor">{personagem.status}</span></h2>
@@ -49,7 +53,7 @@ export default function App() {
           </div>
       ) : (
         <div class="alert alert-danger erroPersonagem" role="alert">
-          Personagem inválido!
+          Nenhum personagem escolhido!
         </div>
       )}
     </div>
