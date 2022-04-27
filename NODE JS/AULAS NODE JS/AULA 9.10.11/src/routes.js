@@ -11,7 +11,7 @@ const routes = new Router();
 
 routes.post("/user", UserController.index);
 
-routes.get("/getUser", AuthMiddleware,UserController.show);
+routes.get("/getUser", AuthMiddleware, UserController.show);
 
 routes.post("/addUser", UserController.store);
 
