@@ -7,7 +7,6 @@ const routes = require('./routes');
 require('./config/Connection');
 
 class App {
-
     constructor(){
         this.app = express();
         this.middleWares();
