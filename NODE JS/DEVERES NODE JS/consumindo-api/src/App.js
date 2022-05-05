@@ -6,12 +6,13 @@ export default function App() {
   const [personagem, setPersonagem] = useState("");
 
   const procurarPersonagem = ()=>{
+
     let idPersonagem = document.getElementById("idPersonagem").value;
 
     if (idPersonagem < 1 || idPersonagem > 826) {
         setPersonagem("");
     } else {
-        api.get(`/character/${idPersonagem}`)
+        api.get(`/${idPersonagem}`)
         .then((res)=>{
           setPersonagem(res.data);
         })
