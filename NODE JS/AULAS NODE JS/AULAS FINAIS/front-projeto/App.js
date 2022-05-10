@@ -9,25 +9,22 @@ export default function App() {
 
   function createUserInNodeApi() {
       
-    // nao esta funcionando com esse
-      // var myHeaders = new Headers();
-      // myHeaders.append('Content-Type', 'application/json');
+      var myHeaders = new Headers();
+      myHeaders.append('Content-Type', 'application/json');
 
       var raw = JSON.stringify({
         "name": nome,
-        "email":email,
-        "password":senha,
+        "email": email,
+        "password": senha,
       });
       var requestOption = {
           method: "POST",
-          headers: {
-            'Content-Type': 'application/json',
-          },
+          headers: myHeaders,
           body: raw,
           redirect: "follow",
           mode: "cors"
       };
-      fetch("http://localhost:8080/addUser",requestOption)
+      fetch("http://localhost:8080/addUser", requestOption)
       .then((res)=>{
         return res.json();
       })
