@@ -8,27 +8,28 @@ export default function App() {
   const [senha, setSenha] = useState("");
 
   function createUserInNodeApi() {
-      // localhost:8080/addUser
       
-      var myHeaders = new Headers();
-
-      // myHeaders.append("Content-type", "text/plain");
+    // nao esta funcionando com esse
+      // var myHeaders = new Headers();
+      // myHeaders.append('Content-Type', 'application/json');
 
       var raw = JSON.stringify({
-        "name":"lucas",
-        "email":"lucas@gmail.com",
-        "password":"lucas"
+        "name": nome,
+        "email":email,
+        "password":senha,
       });
       var requestOption = {
           method: "POST",
-          headers: myHeaders,
+          headers: {
+            'Content-Type': 'application/json',
+          },
           body: raw,
           redirect: "follow",
           mode: "cors"
       };
       fetch("http://localhost:8080/addUser",requestOption)
       .then((res)=>{
-        console.log(res);
+        return res.json();
       })
       .then((res)=>{
         console.log(res);
@@ -58,9 +59,8 @@ export default function App() {
         style={styles.inputStyle}
       />
       <TouchableOpacity style={styles.button} onPress={() => { createUserInNodeApi() }}>
-        <Text style={styles.buttonTitle} >Cadastrar</Text>
+        <Text style={styles.buttonTitle}>Cadastrar</Text>
       </TouchableOpacity>
-      <Text>{nome}</Text>
     </View>
   )
 }
