@@ -11,6 +11,7 @@ class UserController {
     }
 
     show(req, res) {
+        
         var users = ["Kaio", "Larissa", "Danver"];
         
         return res.status(200).json({
