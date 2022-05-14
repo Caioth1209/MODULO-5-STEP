@@ -17,6 +17,7 @@ const loginValidationSchema = yup.object().shape({
     .required('É necessário uma senha válida'),
 })
 
+
 export default function App() {
   
    function createUserInNodeApi(values) {
@@ -66,7 +67,7 @@ export default function App() {
         .then((response) => { console.log(response); })
         .catch((error) => { console.log(error); })
 
-  }
+   }
 
   return (
     <View style={styles.container}>
@@ -151,7 +152,7 @@ export default function App() {
             password: ""
           }
         }
-        onSubmit={values => console.log("oi")}
+        onSubmit={values => console.log(values)}
       >
         {
           ({ handleChange, handleBlur, errors, values, touched, handleSubmit }) => (
