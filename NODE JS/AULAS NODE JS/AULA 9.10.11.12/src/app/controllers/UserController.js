@@ -56,7 +56,7 @@ class UserController {
             if (err) {
                 return res.status(400).json({ 
                     error: true,
-                    message: "Erro ao tentar inserir usuario no banco"
+                    message: "Erro ao tentar inserir usuario no banco!"
                 });
             }
 
