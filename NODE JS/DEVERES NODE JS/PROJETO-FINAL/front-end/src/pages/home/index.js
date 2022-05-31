@@ -4,7 +4,8 @@ import styles from "./styles"
 import { AuthContext } from '../../routes/context'
 const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOGZmNzNiZjhhZTU0YWZlZTFhM2Q2MiIsImlhdCI6MTY1MzYwMzU5MywiZXhwIjoxNjUzNjI1MTkzfQ.XkMuzzf0_8UuemKaL0dvpZNUBEax9Bwyz8BxCKHLfis"
 export default function App() {
-    const { signIn } = React.useContext(AuthContext)
+    const { signIn } = React.useContext(AuthContext);
+    
     function getDataInNodeBackEnd() {
         var myHeaders = new Headers();
         myHeaders.append("Authorization", `Bearer ${token}`);

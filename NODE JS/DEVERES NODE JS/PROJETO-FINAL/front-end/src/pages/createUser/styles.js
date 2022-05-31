@@ -50,8 +50,15 @@ export default StyleSheet.create({
         marginTop: 8
       },
       titleErros: {
-        fontSize: 12,
+        fontSize: 15,
+        marginTop: 15,
         color: 'red',
+        fontWeight: "600"
+      },
+      titleSucessos: {
+        fontSize: 15,
+        marginTop: 15,
+        color: 'green',
         fontWeight: "600"
       }
 })

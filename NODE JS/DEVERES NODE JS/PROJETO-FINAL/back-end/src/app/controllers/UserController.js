@@ -12,12 +12,28 @@ class UserController {
 
     show(req, res) {
         
-        var users = ["Kaio", "Larissa", "Danver"];
+        // var users = ["Kaio", "Larissa", "Danver"];
+
+        // return res.status(200).json({
+        //     error: false,
+        //     users
+        // })
+
+        User.find().exec(function(err, users){
+
+            if (err) {
+                return res.status(400).json({
+                    error: true,
+                    message: "Erro ao procurar dados"
+                })
+            }
+
+            return res.status(200).json({
+                error: false,
+                users
+            })
+        });
         
-        return res.status(200).json({
-            error: false,
-            users
-        })
     }
 
     async store(req, res) {
