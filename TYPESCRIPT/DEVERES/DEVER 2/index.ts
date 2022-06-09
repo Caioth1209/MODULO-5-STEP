@@ -19,7 +19,7 @@ function createTriangle(tri:TriangleConfig) : {color: string; area: number} {
 
 
 let myTriangle = createTriangle(
-    {color: "verde", width: 12}
+    {color: "verde", width: 32}
 );
 
 console.log(myTriangle);

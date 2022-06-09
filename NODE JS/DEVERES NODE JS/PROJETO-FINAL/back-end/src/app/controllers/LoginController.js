@@ -33,7 +33,9 @@ class LoginController{
         //parte 3: Esta tudo certo ? Retorna a senha e email
 
         return res.status(200).json({
+            error: false,
             user:{
+                id: userExist._id,
                 name: userExist.name,
                 email: userExist.email
             },
@@ -41,13 +43,8 @@ class LoginController{
                 {id: userExist._id},
                 config.secret,
                 {expiresIn: config.expireIN}
-            )
+            ),
         })
-
-        // return res.status(200).json({
-        //     error: false,
-        //     message: "Você entrou no sistema!"
-        // })
     }
 
 }

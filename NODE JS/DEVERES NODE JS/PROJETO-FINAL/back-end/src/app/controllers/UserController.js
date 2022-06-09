@@ -6,18 +6,7 @@ const bcrypt = require('bcryptjs');
 
 class UserController {
 
-    index(req, res){
-        console.log(req.body);
-    }
-
-    show(req, res) {
-        
-        // var users = ["Kaio", "Larissa", "Danver"];
-
-        // return res.status(200).json({
-        //     error: false,
-        //     users
-        // })
+    async show(req, res) {
 
         User.find().exec(function(err, users){
 
@@ -81,6 +70,75 @@ class UserController {
                 message: "Usuário cadastrado com sucesso!"
             })
         });
+    }
+
+    async delete(req, res){
+
+        const id = req.body.id;
+
+        let userExist = await User.findOne({
+            _id: id
+        });
+
+        if (!userExist) {
+            return res.status(400).json({
+                error: true,
+                message: "Usuário não existe!"
+            })
+        } else {
+            User.remove({_id: id}, (err)=>{
+                if (err) {
+                    return res.status(400).json({
+                        error: true,
+                        message: err.message
+                    })
+                }
+
+                return res.status(200).json({
+                    error: false,
+                    message: "Usuário removido com sucesso"
+                })
+            })
+        }
+    }
+
+    async updatePassword(req, res){
+
+        const id = req.body.id;
+        let password = req.body.password;
+
+        let userExist = await User.findOne({
+            _id: id
+        });
+
+        if (!userExist) {
+            return res.status(400).json({
+                error: true,
+                message: "Usuário não existe!"
+            })
+        } else {
+
+            password = await bcrypt.hash(password, 8);
+
+            User.findByIdAndUpdate(id, {password:password}, (err)=>{
+                if (err) {
+                    return res.status(400).json({
+                        error: true,
+                        message: err.message
+                    })
+                } 
+
+                userExist = User.findOne({
+                    _id: id
+                });
+
+                return res.status(200).json({
+                    error: false,
+                    message: "Senha trocada com sucesso!",
+                    user: userExist
+                })
+            })
+        }
     }
 }
 

@@ -1,0 +1,12 @@
+.titulo{
+    font-weight: 300;
+    font-size: 30px;
+}
+
+.divBtSubmit{
+    text-align: end;
+}
+
+#msgExito, #msgErro, #erroSenhaConfirm, #erroSenha{
+    display: none;
+}

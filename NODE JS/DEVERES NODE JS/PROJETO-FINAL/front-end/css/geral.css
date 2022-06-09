@@ -1,0 +1,12 @@
+.linha-nav{
+    border-bottom: 1px solid rgb(238, 238, 238);
+}
+
+.titleNav{
+    padding: 10px;
+}
+
+.nav-link{
+    margin: 0 20px 0 0;
+    font-size: 17px;
+}

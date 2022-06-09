@@ -1,0 +1,12 @@
+.titulo{
+    font-weight: 300;
+    font-size: 30px;
+}
+
+#formularioCadastro{
+    margin-top: 50px;
+}
+
+#msgExito, #msgErro, #erroNome, #erroSenha, #erroEmail{
+    display: none;
+}

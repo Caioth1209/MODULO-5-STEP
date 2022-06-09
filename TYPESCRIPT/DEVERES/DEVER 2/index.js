@@ -9,5 +9,5 @@ function createTriangle(tri) {
     }
     return newTriangle;
 }
-let myTriangle = createTriangle({ color: "verde", width: 12 });
+let myTriangle = createTriangle({ color: "verde", width: 32 });
 console.log(myTriangle);
