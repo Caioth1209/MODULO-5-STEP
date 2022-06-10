@@ -1,0 +1,1 @@
+Construa um algoritmo que possibilite utilizar As, rainha, rei e valente utilizando nosso código de aula.
