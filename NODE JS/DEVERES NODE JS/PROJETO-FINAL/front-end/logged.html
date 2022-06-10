@@ -41,7 +41,7 @@
                 </p>
 
                 <button type="button" id="btEditar" class="btn btn-primary">Trocar senha</button>
-                <button type="button" id="btDeletar" class="btn btn-danger">Deletar conta</button>
+                <button type="button" id="btDeletar" data-bs-toggle="modal" data-bs-target="#modalDeleteConfirm" class="btn btn-danger">Deletar conta</button>
             </div>
         </div>
 
@@ -67,7 +67,7 @@
                             <div class="col-md-6 mb-3">
                                 <label for="senhaConfirm" class="form-label">Confirmação de senha</label>
                                 <input type="password" id="senhaConfirm" class="form-control" placeholder="Digite a senha novamente" maxlength="15" required>
-                                <div id="erroSenhaConfirm" class="form-text text-danger">Digite no mínimo 6 e no máximo 15 caracteres!</div>
+                                <div id="erroSenhaConfirm" class="form-text text-danger">Digite a senha novamente corretamente</div>
                             </div>
                         </div>
                 
@@ -82,6 +82,21 @@
                   </div>
               </div>
           </div>
+        </div>
+    
+        <div class="modal fade" id="modalDeleteConfirm" tabindex="-1" aria-labelledby="modalDeleteConfirmLabel" aria-hidden="true">
+            <div class="modal-dialog">
+               
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Tem certeza que você deseja apagar sua conta?</h5>
+                    </div>
+                    <div class="modal-body">
+                        <button type="button" class="btn btn-success" id="btModalDeleteConfirm">Sim</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <button type="button" class="btn btn-primary" id="btModalDelete" hidden data-bs-toggle="modal" data-bs-target="#modalDelete">

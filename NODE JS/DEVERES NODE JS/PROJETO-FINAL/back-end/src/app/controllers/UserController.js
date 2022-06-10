@@ -105,40 +105,25 @@ class UserController {
     async updatePassword(req, res){
 
         const id = req.body.id;
-        let password = req.body.password;
-
-        let userExist = await User.findOne({
-            _id: id
-        });
-
-        if (!userExist) {
-            return res.status(400).json({
-                error: true,
-                message: "Usuário não existe!"
-            })
-        } else {
-
-            password = await bcrypt.hash(password, 8);
-
-            User.findByIdAndUpdate(id, {password:password}, (err)=>{
-                if (err) {
-                    return res.status(400).json({
-                        error: true,
-                        message: err.message
-                    })
-                } 
-
-                userExist = User.findOne({
-                    _id: id
-                });
-
-                return res.status(200).json({
-                    error: false,
-                    message: "Senha trocada com sucesso!",
-                    user: userExist
+        let senha = req.body.password;
+        
+        senha = await bcrypt.hash(senha, 8);
+        
+        User.findByIdAndUpdate(id, {password:senha}, (err, result)=>{
+            if (err) {
+                return res.status(400).json({
+                    error: true,
+                    message: err.message
                 })
-            })
-        }
+            } 
+
+            return res.status(200).json({
+                error: false,
+                message: "Senha trocada com sucesso!",
+                user: result
+            })  
+
+        })
     }
 }
 

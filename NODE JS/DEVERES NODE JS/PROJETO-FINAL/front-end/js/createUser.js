@@ -52,4 +52,86 @@ $("#formCadastro").submit((e)=>{
 })
 
 
-// fazer tratamento de dados
+// tratando nome
+$("#nome").change((e)=>{
+
+    let regex = /[0-9]/;
+
+    if (regex.test(e.target.value.trim())) {
+        $("#erroNome").show();
+
+        setTimeout(() => {
+            $("#erroNome").hide();
+        }, 5000);
+
+        e.target.value = "";
+
+    } else if (e.target.value.trim().length < 4 || e.target.value.trim().length > 35) {
+
+        $("#erroNome").show();
+
+        setTimeout(() => {
+            $("#erroNome").hide();
+        }, 5000);
+
+        e.target.value = "";
+
+    } else {
+        $("#erroNome").hide();
+    }
+})
+
+// tratando email
+$("#email").change((e)=>{
+
+    $("#erroEmail").hide();
+
+    let regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    if (regex.test(e.target.value.trim())) {
+        $("#erroEmail").hide();
+    } else {
+        $("#erroEmail").show();
+
+        setTimeout(() => {
+            $("#erroEmail").hide();
+        }, 5000);
+
+        e.target.value = "";
+    }
+})
+////////////////////////////
+
+// tratando senha
+$("#senha").change((e)=>{
+
+    $("#erroSenha").hide();
+  
+    if (e.target.value.trim().length < 6 || e.target.value.trim().length > 15) {
+  
+        $("#erroSenha").show();
+  
+        setTimeout(() => {
+            $("#erroSenha").hide();
+        }, 5000);
+  
+        e.target.value = "";
+  
+    } else {
+  
+        let senhaSplit = e.target.value.trim().split(" ");
+  
+        if (senhaSplit.length > 1) {
+  
+            $("#erroSenha").show();
+  
+            setTimeout(() => {
+                $("#erroSenha").hide();
+            }, 5000);
+  
+            e.target.value = "";
+  
+        }
+    }
+  })
+////////////////////////////

@@ -1,12 +1,16 @@
 "use strict";
-// array
-let array = [];
-let array2 = [];
-// tuplas
-let array3 = [2, "Caio"];
-console.log(array3);
-// inferencia de tipo
-let res = array3.map((el) => {
-    return el;
-});
-console.log(res);
+// // array
+let deck = {
+    suits: ["hearts", "spades", "clubs", "diamonds"],
+    cards: Array(52),
+    createCardPicker: function () {
+        return () => {
+            let pickedCard = Math.floor(Math.random() * 52);
+            let pickedSuit = Math.floor(pickedCard / 13);
+            return { suit: this.suits[pickedSuit], card: pickedCard % 13 };
+        };
+    }
+};
+let cardPicker = deck.createCardPicker();
+let pickedCard = cardPicker();
+console.log(pickedCard);

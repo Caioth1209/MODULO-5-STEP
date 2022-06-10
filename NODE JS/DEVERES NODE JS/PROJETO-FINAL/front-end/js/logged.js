@@ -47,6 +47,7 @@ const deleteUserInNodeApi = ()=>{
 }
 
 const updatePasswordInNodeApi = (senha)=>{
+
     var myHeaders = new Headers()
     myHeaders.append("Content-type", "application/json")
 
@@ -69,7 +70,8 @@ const updatePasswordInNodeApi = (senha)=>{
       .then((response) => { return response.json() })
       .then((response) => { 
           if (!response.error) {
-            sessionStorage.setItem("user", JSON.stringify(response.user));
+            let user = response.user;
+            sessionStorage.setItem("user", JSON.stringify(user));
             $("#senha").val("");
             $("#senhaConfirm").val("");
             $("#msgExito").show();
@@ -79,18 +81,18 @@ const updatePasswordInNodeApi = (senha)=>{
               $("#msgExito").hide();
             }, 4000);
           } else {
-            console.log(response);
+             console.log(response);
           }
        })
       .catch((error) => { console.log(error); })
 }
 
-$("#btDeletar").click(()=>{
+$("#btModalDeleteConfirm").click(()=>{
     $("#btModalDelete").click();
 
     setTimeout(() => {
       deleteUserInNodeApi();        
-    }, 4000);
+    }, 3500);
 })
 
 $("#formEdit").submit((e)=>{
@@ -98,6 +100,59 @@ $("#formEdit").submit((e)=>{
     e.preventDefault();
 })
 
+// clica no botao de trocar senha e abre o modal de edicao
 $("#btEditar").click(()=>{
   $("#btModalEdit").click();
+})
+
+
+
+// tratando senha e confirmação de senha
+$("#senha").change((e)=>{
+
+  $("#erroSenha").hide();
+
+  if (e.target.value.trim().length < 6 || e.target.value.trim().length > 15) {
+
+      $("#erroSenha").show();
+
+      setTimeout(() => {
+          $("#erroSenha").hide();
+      }, 5000);
+
+      e.target.value = "";
+
+  } else {
+
+      let senhaSplit = e.target.value.trim().split(" ");
+
+      if (senhaSplit.length > 1) {
+
+          $("#erroSenha").show();
+
+          setTimeout(() => {
+              $("#erroSenha").hide();
+          }, 5000);
+
+          e.target.value = "";
+
+      }
+  }
+})
+
+$("#senhaConfirm").change((e)=>{
+
+  if (e.target.value.trim() != $("#senha").val()) {
+
+      $("#erroSenhaConfirm").show();
+
+      setTimeout(() => {
+          $("#erroSenhaConfirm").hide();
+      }, 5000);
+
+      e.target.value = "";
+
+  } else {
+    $("#erroSenhaConfirm").hide();
+  }
 })
