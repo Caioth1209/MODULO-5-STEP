@@ -21,8 +21,6 @@ let deck: Deck = {
 
             let pickedSuit = Math.floor(pickedCard/13);
 
-            console.log(pickedCard);
-
             return {
                 suit: this.suits[pickedSuit],
                 card: values[pickedCard % 13]
@@ -34,4 +32,4 @@ let deck: Deck = {
 let cardPicker = deck.createCardPicker();
 let pickedCard = cardPicker();
 
-console.log(pickedCard);
+console.log(`${pickedCard.card} of ${pickedCard.suit}`);

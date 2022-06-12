@@ -96,7 +96,7 @@ class UserController {
 
                 return res.status(200).json({
                     error: false,
-                    message: "Usuário removido com sucesso"
+                    message: "Usuário removido com sucesso!"
                 })
             })
         }

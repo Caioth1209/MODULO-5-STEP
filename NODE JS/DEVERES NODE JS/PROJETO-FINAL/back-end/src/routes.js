@@ -9,7 +9,7 @@ const AuthMiddleware = require('./app/middlewares/AuthMiddleware');
 
 const routes = new Router();
 
-routes.get("/getUsers", /*AuthMiddleware,*/ UserController.show);
+routes.get("/getUsers", UserController.show);
 
 routes.post("/addUser", UserController.store);
 
