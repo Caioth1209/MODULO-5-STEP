@@ -3,12 +3,6 @@ $(document).ready(()=>{
     apareceInformacoes();
 })
 
-const verificaLogin = ()=> {
-    if (!sessionStorage.getItem("user")) {
-        location.replace("./index.html");
-    }
-}
-
 const apareceInformacoes = ()=> {
     let pessoa = JSON.parse(sessionStorage.getItem("user"));
     $("#uiNome").text(pessoa.name);
@@ -156,3 +150,4 @@ $("#senhaConfirm").change((e)=>{
     $("#erroSenhaConfirm").hide();
   }
 })
+/////////////////

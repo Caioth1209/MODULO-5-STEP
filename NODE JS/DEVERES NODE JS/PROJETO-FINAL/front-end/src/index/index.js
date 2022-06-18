@@ -32,7 +32,7 @@ const loginUserInNodeApi = (values)=> {
 
           } else {
               sessionStorage.setItem("user", JSON.stringify(response.user));
-              location.replace("./logged.html");
+              location.replace("./logged/logged.html");
           }
       })
       .catch((error) => { console.log(error); })

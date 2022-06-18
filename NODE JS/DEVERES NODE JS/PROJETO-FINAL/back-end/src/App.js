@@ -13,7 +13,6 @@ class App {
         this.routes();
     }
 
-    // responsavel por trazer seguranca para a aplicacao.
     middleWares(){
 
         this.app.use(express.json());
