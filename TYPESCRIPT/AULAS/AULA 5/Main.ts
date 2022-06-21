@@ -1,20 +1,9 @@
 // para rodar o ts-node: npx ts-node <nome do arquivo>
 
 import prompt from "prompt-sync";
+import Personagem from "./Personagem";
 
-export class Personagem{
-    constructor(
-        public nome: string,
-        public energia: number,
-        public vida: number,
-        public ataque: number,
-        public defesa: number
-    ){
-
-    } 
-}
-
-let ken : Personagem = new Personagem("Ken Masters", 10, 10, 10, 10);
+let mago : Personagem = new Personagem("Arcanius", 100, 40, 20, 20);
 
 let teclado = prompt();
 
@@ -24,34 +13,40 @@ while (option != 9) {
     console.log("\n///// Personagem /////");
     console.log("(1) - Treinar Ataque");
     console.log("(2) - Treinar Defesa");
-    console.log("(3) - Imprimir Atributos");
-    console.log("(9) - Sair do game");
+    console.log("(3) - Descansar");
+    console.log("(5) - Imprimir Status");
+    console.log("(9) - Sair do Game");
     console.log("//////////////////////\n");
     
     option =+ teclado("Escolha uma ação: ");
 
     switch (option) {
         case 1:{
-            console.log(`\nTreinando ataque do ${ken.nome}!!!`);
-            console.log("+2 de ataque!\n");
-            ken.ataque += 2;
+            mago.treinarAtaque();
             break;
         }
 
         case 2:{
-            console.log(`\nTreinando defesa do ${ken.nome}!!!`);
-            console.log("+2 de defesa!\n");
-            ken.defesa += 2
+            mago.treinarDefesa();
             break;
         }
 
         case 3:{
-            console.log(ken);
+
+            let res : number =+ teclado("\nDigite o tempo de descanso: ");
+
+            mago.descansar(res);
+
+            break;
+        }
+
+        case 8:{
+            mago.status();
             break;
         }
 
         case 9:{
-            console.log("Saindo...");
+            console.log("\nSaindo...");
             break;
         }
         
