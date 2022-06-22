@@ -1,0 +1,2 @@
+Crie duas classes para combater entre si, 
+utilize o atributo ataque para parametrizar o combate.

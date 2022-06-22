@@ -14,7 +14,7 @@ while (option != 9) {
     console.log("(1) - Treinar Ataque");
     console.log("(2) - Treinar Defesa");
     console.log("(3) - Descansar");
-    console.log("(5) - Imprimir Status");
+    console.log("(8) - Imprimir Status");
     console.log("(9) - Sair do Game");
     console.log("//////////////////////\n");
     
