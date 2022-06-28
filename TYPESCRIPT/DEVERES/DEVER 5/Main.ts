@@ -122,9 +122,7 @@ do {
             break;
         }
     }
-    
-    
-    
+       
 } while (!vencedor);
 
 // while (option != 9) {
