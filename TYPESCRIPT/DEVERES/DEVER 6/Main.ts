@@ -111,7 +111,8 @@ while (option != 9) {
             personagens.forEach((e) => {
                 e.status();
                 console.log("/////////////////////");
-            })
+            });
+            
             break;
         }
         case 9:{
