@@ -43,6 +43,20 @@ class CoinApiController{
             message: "Tudo ok"
         });
     }
+
+    public async getCoins(){
+    
+        await fetch(apiUrl)
+        .then((res)=>{
+            return res.json();
+        })
+        .then((res)=>{
+            console.log(res);
+        })
+        .catch((err)=>{
+            console.log(err);
+        });
+    }
 }
 
 export const coinApiController = new CoinApiController();

@@ -1,0 +1,1 @@
+“Utilizando o novo código crie um novo endPoint na nossa estrutura node+Ts. Esse endpoint pode utilizar qualquer método http(GET,PUT,DELETE ...etc).”
