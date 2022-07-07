@@ -23,7 +23,7 @@ interface ICoin {
 }
 
 interface IData {
-    stats : string,
+    stats : object,
     coins: ICoin[]
 }
 
@@ -32,29 +32,44 @@ interface IResult {
     data: IData
 }
 
+const promisse = <T>(fetchPromisse : any) : Promise<T> => {
+    return new Promise<T>((resolve, reject) => {
+        fetchPromisse
+        .then((result : any) => {
+            result.json()
+            .then((jsonResult : any) => {
+                resolve(jsonResult as Promise<T>)
+            });
+        })
+        .catch((err : any) => {
+            console.log(err);
+        })
+    });
+}
+
+const fetchApi = <T>(url:string) : Promise<T> =>{
+    return promisse(fetch(apiUrl));
+}
+
+const getCoins = async () : Promise<ICoin[]> => {
+   return (await fetchApi<IResult>(apiUrl)).data.coins;
+}
+
 class CoinApiController{
 
     constructor(){
-        
+        this.getData();
+    }
+
+    public getData(){
+        (async ()=>{
+            const coins : ICoin[]
+        })
     }
 
     public coin(req: Request, res: Response){
         return res.json({
             message: "Tudo ok"
-        });
-    }
-
-    public async getCoins(){
-    
-        await fetch(apiUrl)
-        .then((res)=>{
-            return res.json();
-        })
-        .then((res)=>{
-            console.log(res);
-        })
-        .catch((err)=>{
-            console.log(err);
         });
     }
 }
