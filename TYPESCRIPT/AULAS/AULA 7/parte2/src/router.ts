@@ -9,6 +9,4 @@ router.get('/', firstController.home);
 
 router.get('/coin', coinApiController.coin);
 
-router.get('/getCoins', coinApiController.getCoins);
-
 export { router };

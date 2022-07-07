@@ -48,7 +48,7 @@ const promisse = <T>(fetchPromisse : any) : Promise<T> => {
 }
 
 const fetchApi = <T>(url:string) : Promise<T> =>{
-    return promisse(fetch(apiUrl));
+    return promisse(fetch(url));
 }
 
 const getCoins = async () : Promise<ICoin[]> => {
@@ -63,7 +63,11 @@ class CoinApiController{
 
     public getData(){
         (async ()=>{
-            const coins : ICoin[]
+            const coins : ICoin[] = await getCoins();
+            console.log(coins);
+            return coins;
+        })().catch((err)=>{
+            console.log(err);
         })
     }
 
