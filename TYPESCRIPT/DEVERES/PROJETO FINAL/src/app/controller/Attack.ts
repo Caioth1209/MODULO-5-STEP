@@ -5,24 +5,53 @@ import {warrior} from '../model/Warrior';
 class Attack {
     public index(req: Request, res: Response){
 
-        const {typePlayer, damage} = req.body;
+        const {typeAttacker, attackerDamage} = req.body;
+        let {opponentLife} = req.body;
 
-        if (warrior.swordAttack(damage) > mage.armorClass) {
-            return res.json({
-                res: `O ataque foi realizado --- DANO: ${damage}`
-            });
+        switch (typeAttacker) {
+
+            case "warrior":{
+
+                if (warrior.attack(attackerDamage) > mage.armorClass) {
+
+                    opponentLife -= attackerDamage;
+
+                    return res.json({
+                        opponentLife: opponentLife,
+                        message: `O ataque foi realizado! 
+                        Dano: ${attackerDamage}. 
+                        Vida do mage: ${opponentLife}`
+                    });
+                }
+
+                break;
+            }
+
+            case "mage":{
+
+                if (mage.attack(attackerDamage) > warrior.armorClass) {
+
+                    opponentLife -= attackerDamage;
+
+                    return res.json({
+                        opponentLife: opponentLife,
+                        message: `O ataque foi realizado! 
+                        Dano: ${attackerDamage}. 
+                        Vida do warrior: ${opponentLife}`
+                    });
+                }
+
+                break;
+            }
+
         }
-
+    
         return res.json({
-            res: `Jogador: ${typePlayer} - ${damage}`
+            opponentLife: opponentLife,
+            message: `O ataque do ${typeAttacker} nao entrou!`
         });
+
     }
 }
 
 export const attack = new Attack();
-
-// PERGUNTAS QUE TEM QUE SEREM SOLUCIONADAS
-
-// quem eu irei atacar ?
-// quantos pontos de dano o cria causou ?
-// tipo do player atacante ?
