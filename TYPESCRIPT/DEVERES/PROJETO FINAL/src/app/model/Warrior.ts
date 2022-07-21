@@ -3,7 +3,7 @@ import {Character} from '../model/Character';
 class Warrior extends Character{
     
     constructor(){
-        super(5,20,1000);
+        super("Blast",5,20,1000);
     }
 
     public attack(damage : number) : number{

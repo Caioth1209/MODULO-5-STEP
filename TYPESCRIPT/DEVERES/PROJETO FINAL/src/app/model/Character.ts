@@ -1,4 +1,5 @@
 export abstract class Character{
+    private _name : string;
     private _strength: number;
     // private _dexterity: number;
     // private _constitution: number;
@@ -9,7 +10,8 @@ export abstract class Character{
     private _life : number;
     // private _level : number;
 
-    constructor(strength: number, armorClass: number, life: number){
+    constructor(name: string,strength: number, armorClass: number, life: number){
+        this._name = name;
         this._strength = strength;
         // this._dexterity = 5;
         // this._constitution = 5;
@@ -22,6 +24,24 @@ export abstract class Character{
     }
 
     public abstract attack(damage : number) : number;
+
+    public isDead(): boolean {
+        
+        if (this.life <= 0) {
+            this.life = 0;
+            return true;
+        }
+
+        return false;
+    }
+
+    public get name(): string {
+        return this._name;
+    }
+
+    public set name(name: string) {
+        this._name = name;
+    }
 
     public get strength(): number {
         return this._strength;
