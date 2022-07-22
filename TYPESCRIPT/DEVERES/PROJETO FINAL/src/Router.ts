@@ -5,7 +5,7 @@ import {player} from './app/controller/Player';
 const router : Router = Router();
 
 // rotas 
-router.post("/atk", attack.index2);
+router.post("/atk", attack.index);
 
 router.post("/createWarrior", player.createWarrior);
 
