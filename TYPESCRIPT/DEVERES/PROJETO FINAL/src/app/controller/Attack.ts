@@ -1,67 +1,62 @@
 import {Request, Response} from 'express';
-import {mage} from '../model/Mage';
-import {warrior} from '../model/Warrior';
+import {Mage} from '../model/Mage';
+import {Warrior} from '../model/Warrior';
 
 class Attack {
 
-    public index(req: Request, res: Response){
+    // public index(req: Request, res: Response){
 
-        const {typeAttacker, attackerDamage} = req.body;
-        let {opponentLife} = req.body;
+    //     const {typeAttacker, attackerDamage} = req.body;
+    //     let {opponentLife} = req.body;
         
-        switch (typeAttacker) {
+    //     switch (typeAttacker) {
 
-            case "warrior":{
+    //         case "warrior":{
 
-                if (warrior.attack(attackerDamage) > mage.armorClass) {
+    //             if (warrior.attack(attackerDamage) > mage.armorClass) {
 
-                    opponentLife -= attackerDamage;
+    //                 opponentLife -= attackerDamage;
 
-                    return res.json({
-                        opponentLife: opponentLife,
-                        message: `O ataque foi realizado! Dano: ${attackerDamage}. Vida do mage: ${opponentLife}`
-                    });
-                }
+    //                 return res.json({
+    //                     opponentLife: opponentLife,
+    //                     message: `O ataque foi realizado! Dano: ${attackerDamage}. Vida do mage: ${opponentLife}`
+    //                 });
+    //             }
 
-                break;
-            }
+    //             break;
+    //         }
 
-            case "mage":{
+    //         case "mage":{
 
-                if (mage.attack(attackerDamage) > warrior.armorClass) {
+    //             if (mage.attack(attackerDamage) > warrior.armorClass) {
 
-                    opponentLife -= attackerDamage;
+    //                 opponentLife -= attackerDamage;
 
-                    return res.json({
-                        opponentLife: opponentLife,
-                        message: `O ataque foi realizado! Dano: ${attackerDamage}. Vida do warrior: ${opponentLife}`
-                    });
-                }
+    //                 return res.json({
+    //                     opponentLife: opponentLife,
+    //                     message: `O ataque foi realizado! Dano: ${attackerDamage}. Vida do warrior: ${opponentLife}`
+    //                 });
+    //             }
 
-                break;
-            }
+    //             break;
+    //         }
 
-        }
+    //     }
     
-        return res.json({
-            opponentLife: opponentLife,
-            message: `O ataque do ${typeAttacker} nao entrou!`
-        });
+    //     return res.json({
+    //         opponentLife: opponentLife,
+    //         message: `O ataque do ${typeAttacker} nao entrou!`
+    //     });
 
-    }
+    // }
 
     public index2(req: Request, res: Response){
 
-        // const {attacker, opponent, attackerDamage} = req.body;
-
-        const attacker = mage;
-        const opponent = warrior;
-        const attackerDamage = 1000;
+        const {attacker, opponent, attackerDamage} = req.body;
         
         if (attacker.attack(attackerDamage) > opponent.armorClass) {
 
             opponent.life -= attackerDamage;
-
 
             return res.json({
                 attacker: attacker,

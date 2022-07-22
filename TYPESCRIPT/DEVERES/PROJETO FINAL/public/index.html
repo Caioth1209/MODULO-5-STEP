@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOGO RPG</title>
+</head>
+<body>
+
+    <form id="formEscolha">
+
+        <h2>Informações player 1</h2>
+
+        <div>
+            <label for="nome">Digite o nome do personagem</label>
+            <input type="text" id="nomeP1" required>
+        </div>
+
+        <div>
+            <label for="nome">Escolha seu personagem</label>
+            <select id="personagemP1" required>
+                <option selected disabled value="">ESCOLHA</option>
+                <option value="Mage">Mago</option>
+                <option value="Warrior">Guerreiro</option>
+            </select>
+        </div>
+
+        <h2>Informações player 2</h2>
+
+        <div>
+            <label for="nome">Digite o nome do personagem</label>
+            <input type="text" id="nomeP2" required>
+        </div>
+
+        <div>
+            <label for="nome">Escolha seu personagem</label>
+            <select id="personagemP2" required>
+                <option selected disabled value="">ESCOLHA</option>
+                <option value="Mage">Mago</option>
+                <option value="Warrior">Guerreiro</option>
+            </select>
+        </div>
+
+        <button type="submit" id="btComeca">COMEÇAR JOGO</button>
+    </form>
+
+    <div id="jogo">
+        <div id="vez"></div>
+
+        <div id="estatisticas"></div>
+
+        <div id="frases"></div>
+
+        <button type="button" id="btAtaque">ATACAR</button>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
