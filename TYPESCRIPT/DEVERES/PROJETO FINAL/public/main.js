@@ -37,11 +37,16 @@ formEscolha.submit( async (e)=> {
 btAtaque.click(async ()=>{
     btAtaque.hide();
     $("#loadingStats").show();
+
     let typeAttacker = vez == 1 ? tipoP1 : tipoP2;
+    let typeOpponent = vez == 1 ? tipoP2 : tipoP1;
     let attackerDamage = Math.floor(10 + Math.random() * (20 - 10));
     let opponentLife = vez == 1 ? player2._life : player1._life;
 
-    await atacarOponente(typeAttacker, attackerDamage, opponentLife)
+    let nameAttacker = vez == 1 ? player1._name : player2._name;
+    let nameOpponent = vez == 1 ? player2._name : player1._name;
+
+    await atacarOponente(typeAttacker, typeOpponent, attackerDamage, opponentLife, nameAttacker, nameOpponent)
     .then((data)=>{
         if (vez == 1) {
             player2._life = data.opponentLife;
@@ -70,9 +75,6 @@ const imprimirEstatisticas = ()=>{
         $("#loadingStats").hide();
         $("#frases").show();
         $("#frases").html(`<h3>${frases}</h3>`);
-        setTimeout(() => {
-            $("#frases").hide();
-        }, 5000)
         btAtaque.show();
 
         mudaVez();
@@ -140,15 +142,18 @@ const criarPersonagem = async (nome, pers)=>{
     })
 }
 
-const atacarOponente = async (typeAttacker, attackerDamage, opponentLife)=>{
+const atacarOponente = async (typeAttacker, typeOpponent, attackerDamage, opponentLife, nameAttacker, nameOpponent) => {
 
     var myHeaders = new Headers();
     myHeaders.append("Content-type", "application/json");
 
     let raw = JSON.stringify({
         "typeAttacker": typeAttacker,
+        "typeOpponent": typeOpponent,
         "attackerDamage": attackerDamage,
-        "opponentLife": opponentLife
+        "opponentLife": opponentLife,
+        "nameAttacker": nameAttacker,
+        "nameOpponent": nameOpponent
     });
     
     var requestOption = {

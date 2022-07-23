@@ -9,44 +9,48 @@
 </head>
 <body>
 
-    <form id="formEscolha">
+    <form id="formEscolha" class="text-center">
 
-        <h2>Informações player 1</h2>
+        <div class="mt-5">
+            <h2>Informações player 1</h2>
 
-        <div>
-            <label for="nome">Digite o nome do personagem</label>
-            <input type="text" id="nomeP1" required>
+            <div>
+                <label for="nome">Digite o nome do personagem</label>
+                <input type="text" id="nomeP1" required>
+            </div>
+
+            <div>
+                <label for="nome">Escolha seu personagem</label>
+                <select id="personagemP1" required>
+                    <option selected disabled value="">ESCOLHA</option>
+                    <option value="Mage">Mago</option>
+                    <option value="Warrior">Guerreiro</option>
+                </select>
+            </div>
         </div>
 
-        <div>
-            <label for="nome">Escolha seu personagem</label>
-            <select id="personagemP1" required>
-                <option selected disabled value="">ESCOLHA</option>
-                <option value="Mage">Mago</option>
-                <option value="Warrior">Guerreiro</option>
-            </select>
+        <div class="mt-5">
+            <h2>Informações player 2</h2>
+
+            <div>
+                <label for="nome">Digite o nome do personagem</label>
+                <input type="text" id="nomeP2" required>
+            </div>
+
+            <div>
+                <label for="nome">Escolha seu personagem</label>
+                <select id="personagemP2" required>
+                    <option selected disabled value="">ESCOLHA</option>
+                    <option value="Mage">Mago</option>
+                    <option value="Warrior">Guerreiro</option>
+                </select>
+            </div>
         </div>
 
-        <h2>Informações player 2</h2>
-
-        <div>
-            <label for="nome">Digite o nome do personagem</label>
-            <input type="text" id="nomeP2" required>
-        </div>
-
-        <div>
-            <label for="nome">Escolha seu personagem</label>
-            <select id="personagemP2" required>
-                <option selected disabled value="">ESCOLHA</option>
-                <option value="Mage">Mago</option>
-                <option value="Warrior">Guerreiro</option>
-            </select>
-        </div>
-
-        <button type="submit" id="btComeca">COMEÇAR JOGO</button>
+        <button type="submit" id="btComeca" class="mt-5">COMEÇAR JOGO</button>
     </form>
 
-    <div id="jogo">
+    <div id="jogo" class="text-center">
         <div class="row" id="estatisticas">
 
             <h2>Estatísticas</h2>
