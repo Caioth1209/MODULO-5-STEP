@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "AULA1",
+    "name": "AULA1 - teste",
     "slug": "AULA1",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -28,6 +28,7 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": ""
   }
 }
