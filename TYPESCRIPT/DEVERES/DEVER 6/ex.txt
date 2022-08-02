@@ -1,0 +1,1 @@
+“Crie uma interface utilizando console.log para a criação de 5 personagens. Esses personagens devem ter características diferentes. Utilize os modificadores de acesso get and set para a implementação do algoritmo.”

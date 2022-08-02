@@ -1,0 +1,1 @@
+Seguindo o exemplo de sala de aula crie um algoritmo que calcule a area de um triângulo equilátero
