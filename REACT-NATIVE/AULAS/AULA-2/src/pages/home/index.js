@@ -6,7 +6,7 @@ import Body from "../../components/home/body"
 import Footer from "../../components/home/footer"
 
 
-export default function Home() {
+export default function App() {
 
   function minhaFuncao() {
     // alert('teste');
