@@ -24,7 +24,7 @@ export default StyleSheet.create({
     },
     textInfo:{
         marginTop: 5,
-        fontSize: 14,
+        fontSize: 11,
         fontWeight: "bold",
     }
 })

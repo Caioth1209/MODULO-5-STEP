@@ -4,17 +4,17 @@ export default StyleSheet.create({
     container:{
         flex: 4/6,
         alignItems: "center",
-        justifyContent: "center",
         width: "90%",
         backgroundColor: "white",
     },
     titleExtrato:{
-        marginTop: 15,
-        fontSize: 23,
-        letterSpacing: 1
+        margin: 15,
+        fontSize: 20,
+        letterSpacing: 3,
+        fontWeight: "bold",
     },
     listaExtrato:{
-        width: "80%",
+        width: "90%",
     }
 
 })
