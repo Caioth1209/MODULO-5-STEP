@@ -5,7 +5,6 @@ import styles from "./styles"
 export default function App({nomeDestinatario, hora, data, valor, }) {
     return (
         <View style={styles.container}>
-
             <View style={styles.boxInfo}>
                 <Text style={styles.titleInfo}>Quem recebeu: </Text>
                 <Text style={styles.info}>{nomeDestinatario}</Text>
