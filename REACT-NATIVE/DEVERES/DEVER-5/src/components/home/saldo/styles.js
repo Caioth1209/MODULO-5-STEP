@@ -2,6 +2,13 @@ import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
     container:{
+        flex: 2/6,
+        alignItems: "center",
+        justifyContent: "center",
+        width: "95%",
+        backgroundColor: "white",
+    },
+    boxSaldo:{
         borderWidth: 3,
         borderColor: "#463f3a",
         borderRadius: 30,

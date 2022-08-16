@@ -5,8 +5,10 @@ import { Text, View } from 'react-native';
 export default function App(props) {
     return (
         <View style={styles.container}>
-            <Text style={styles.saldoTitulo}>SEU SALDO:</Text>
-            <Text style={styles.saldoDinheiro}>R$ {props.saldo}</Text>
+            <View style={styles.boxSaldo}>
+                <Text style={styles.saldoTitulo}>SEU SALDO:</Text>
+                <Text style={styles.saldoDinheiro}>R$ {props.saldo}</Text>
+            </View>
         </View>
     )
 }

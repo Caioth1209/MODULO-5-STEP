@@ -14,11 +14,8 @@ export default function App() {
             handleAddButton={setMoney}
             moneyQuantity={money}
             />
-            <View
-            style={styles.containerBody}>
-                <Saldo
+            <Saldo
                 saldo={money}/>
-            </View>
         </SafeAreaView>
     )
 }

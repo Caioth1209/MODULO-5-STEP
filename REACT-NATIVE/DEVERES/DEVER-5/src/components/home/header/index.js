@@ -4,8 +4,8 @@ import styles from "./styles"
 
 export default function App(props) {
 
-    function addMoney(addQuantity){
-        return parseFloat(props.moneyQuantity) + addQuantity;
+    function addMoney(quantityAdded){
+        return parseFloat(props.moneyQuantity) + quantityAdded;
     }
 
     return (
