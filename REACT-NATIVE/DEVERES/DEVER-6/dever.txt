@@ -1,0 +1,2 @@
+Crie uma flatlist que exiba uma lista de contendo múltiplos usuário. 
+Navegue para um tela de exibição demonstrando os dados do usuarios escolhido.”
