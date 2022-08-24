@@ -13,11 +13,8 @@ export default function App({navigation, route}){
                 justifyContent: "center"
             }
         }>
-            <Text>Detail {name}</Text>
-            <Text>Detail {valor}</Text>
-            <Text>Detail {msg}</Text>
             <Button
-            title="Button"
+            title="Voltar"
             onPress={()=>{navigation.navigate("Home")}}/>
         </View>
     )

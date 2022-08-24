@@ -12,7 +12,7 @@ export default function App({navigation}){
         }>
             <Text>Home</Text>
             <Button
-            title="Button"
+            title="Ir para outra pagina"
             onPress={()=>{navigation.navigate("Detail", {
                 name: "Alan",
                 valor: 10,

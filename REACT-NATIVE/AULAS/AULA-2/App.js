@@ -5,7 +5,9 @@ import React from 'react';
 // import List from "./src/pages/flatList";
 // import Hooks from "./src/pages/hooks";
 // import Count from "./src/pages/count";
-import Routes from "./src/routes";
+// import Routes from "./src/routes";
+// import Bottom from "./src/pages/bottomNavigation"
+// import Drawer from "./src/pages/drawerNavigation"
 
 /*
 // aula 01 - 02
@@ -31,7 +33,9 @@ import Routes from "./src/routes";
 // }
 */
 
-// aula 06 - react navigation
+// aula 06 e 07 - react navigation
 export default function App() {
-    return <Routes/>;
+    // return <Routes/>;
+    // return <Bottom/>
+    // return <Drawer/>
 }

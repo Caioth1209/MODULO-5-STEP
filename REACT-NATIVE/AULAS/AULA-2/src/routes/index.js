@@ -4,6 +4,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from "../pages/reactNavigation/home"
 import DetailScreen from "../pages/reactNavigation/detail"
 
+import { Text, TouchableOpacity} from "react-native"
+ 
 const Stack = createNativeStackNavigator();
 
 // roteador
@@ -14,7 +16,15 @@ export default function App(){
             <Stack.Navigator>
                 <Stack.Screen
                 name="Home"
-                component={HomeScreen}/>
+                component={HomeScreen}
+                options={{
+                    title: "Pagina prinicipal",
+                    headerStyle:{
+                        backgroundColor: "orange"
+                    },
+                    headerTintColor: "white",
+                    
+                }}/>
                 <Stack.Screen
                 name="Detail"
                 component={DetailScreen}/>
