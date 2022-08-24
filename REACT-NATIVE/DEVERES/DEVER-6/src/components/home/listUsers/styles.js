@@ -8,7 +8,7 @@ export default StyleSheet.create({
     },
     listaUsers:{
         width: "95%",
-        marginRight: "auto"
+        marginRight: "auto",
     }
     
 })
