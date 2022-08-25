@@ -8,6 +8,7 @@ import React from 'react';
 // import Routes from "./src/routes";
 // import Bottom from "./src/pages/bottomNavigation"
 // import Drawer from "./src/pages/drawerNavigation"
+import Auth from "./src/pages/authenticationFlows"
 
 /*
 // aula 01 - 02
@@ -34,8 +35,14 @@ import React from 'react';
 */
 
 // aula 06 e 07 - react navigation
+// export default function App() {
+//     // return <Routes/>;
+//     // return <Bottom/>
+//     // return <Drawer/>
+// }
+
+
+// aula 08 - authentication Flows
 export default function App() {
-    // return <Routes/>;
-    // return <Bottom/>
-    // return <Drawer/>
+    return <Auth/>;
 }
