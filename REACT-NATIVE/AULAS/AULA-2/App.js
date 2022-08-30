@@ -8,7 +8,8 @@ import React from 'react';
 // import Routes from "./src/routes";
 // import Bottom from "./src/pages/bottomNavigation"
 // import Drawer from "./src/pages/drawerNavigation"
-import Auth from "./src/pages/authenticationFlows"
+// import Auth from "./src/pages/authenticationFlows"
+import AulaFirebase from "./src/pages/firebase"
 
 /*
 // aula 01 - 02
@@ -43,6 +44,11 @@ import Auth from "./src/pages/authenticationFlows"
 
 
 // aula 08 - authentication Flows
+// export default function App() {
+//     return <Auth/>;
+// }
+
+// aula 09 - Firebase
 export default function App() {
-    return <Auth/>;
+    return <AulaFirebase/>;
 }
