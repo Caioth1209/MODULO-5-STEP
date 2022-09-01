@@ -14,8 +14,6 @@ const firebaseConfig = {
     measurementId: "G-VZ0FKNH446"
 };
 
-if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
-}
+firebase.initializeApp(firebaseConfig);
 
-export default firebaseConfig;
+export default firebase;

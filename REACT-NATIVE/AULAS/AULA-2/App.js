@@ -10,6 +10,8 @@ import React from 'react';
 // import Drawer from "./src/pages/drawerNavigation"
 // import Auth from "./src/pages/authenticationFlows"
 import AulaFirebase from "./src/pages/firebase"
+import RealtimeDB from "./src/pages/realtimeDb"
+import ImagePicker from "./src/pages/imagePicker"
 
 /*
 // aula 01 - 02
@@ -48,7 +50,9 @@ import AulaFirebase from "./src/pages/firebase"
 //     return <Auth/>;
 // }
 
-// aula 09 - Firebase
+// aula 09 e 10 - Firebase
 export default function App() {
-    return <AulaFirebase/>;
+    // return <AulaFirebase/>;
+    // return <RealtimeDB/>
+    return <ImagePicker/>
 }
